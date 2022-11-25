@@ -1,46 +1,60 @@
 import {iosVhFix} from './utils/ios-vh-fix';
 import {initModals} from './modules/modals/init-modals';
+import './modules/header-button';
 
-// ---------------------------------
+const buttons = document.querySelectorAll('.navigation__link');
 
-window.addEventListener('DOMContentLoaded', () => {
+const SCROLL_TO = function (where) {
+  const scrollTarget = document.querySelector(`[data-scroll-to="${where}"]`);
+  const elementPosition = scrollTarget.getBoundingClientRect().top;
 
-  // Utils
-  // ---------------------------------
+  window.scrollBy({
+    top: elementPosition,
+    behavior: 'smooth',
+  });
+};
 
+const VALIDATE_PHONE = function () {
+  const eventCalllback = function (e) {
+    const el = e.target;
+    const clearVal = el.dataset.phoneClear;
+    const pattern = el.dataset.phonePattern;
+    const matrixDef = '+7 (___) ___-__-__';
+    let matrix = pattern ? pattern : matrixDef;
+    let i = 0;
+    const def = matrix.replace(/\D/g, '');
+    let val = e.target.value.replace(/\D/g, '');
+    if (clearVal !== 'false' && e.type === 'blur') {
+      if (val.length < matrix.match(/([\_\d])/g).length) {
+        e.target.value = '';
+        return;
+      }
+    }
+    if (def.length >= val.length) {
+      val = def;
+    }
+    e.target.value = matrix.replace(/./g, function (a) {
+      return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+    });
+  };
+  const PHONE_INPUTS = document.querySelectorAll('[data-phone-pattern]');
+  for (let elem of PHONE_INPUTS) {
+    for (let ev of ['input', 'blur', 'focus']) {
+      elem.addEventListener(ev, eventCalllback);
+    }
+  }
+};
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    SCROLL_TO(Object.values(button.dataset));
+  });
+});
+
+window.addEventListener('DOMContentLoaded', ()=> {
   iosVhFix();
-
-  // Modules
-  // ---------------------------------
-
-  // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
-  // в load следует добавить скрипты, не участвующие в работе первого экрана
+  VALIDATE_PHONE();
   window.addEventListener('load', () => {
     initModals();
   });
 });
-
-// ---------------------------------
-
-// ❗❗❗ обязательно установите плагины eslint, stylelint, editorconfig в редактор кода.
-
-// привязывайте js не на классы, а на дата атрибуты (data-validate)
-
-// вместо модификаторов .block--active используем утилитарные классы
-// .is-active || .is-open || .is-invalid и прочие (обязателен нейминг в два слова)
-// .select.select--opened ❌ ---> [data-select].is-open ✅
-
-// выносим все в дата атрибуты
-// url до иконок пинов карты, настройки автопрокрутки слайдера, url к json и т.д.
-
-// для адаптивного JS используется matchMedia и addListener
-// const breakpoint = window.matchMedia(`(min-width:1024px)`);
-// const breakpointChecker = () => {
-//   if (breakpoint.matches) {
-//   } else {
-//   }
-// };
-// breakpoint.addListener(breakpointChecker);
-// breakpointChecker();
-
-// используйте .closest(el)

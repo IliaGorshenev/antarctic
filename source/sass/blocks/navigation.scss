@@ -1,0 +1,36 @@
+.navigation {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  &__item {
+    & + & {
+      margin-left: 33px;
+
+      @include vp-1365 {
+        margin-left: 23px;
+      }
+    }
+  }
+
+  &__link {
+    color: #f9fbfd;
+
+    font-weight: 500;
+    user-select: none;
+
+    @include hover-focus {
+      opacity: 0.6;
+    }
+
+    @include vp-1365 {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}
