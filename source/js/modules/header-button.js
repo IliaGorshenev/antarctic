@@ -1,6 +1,6 @@
 
 const NAV_MAIN = document.querySelector('.header');
-let NAV_TOGGLE = document.querySelector('.header__button');
+const NAV_TOGGLE = document.querySelector('.header__button');
 
 NAV_MAIN.classList.remove('header--nojs');
 NAV_MAIN.classList.add('header--closed');
