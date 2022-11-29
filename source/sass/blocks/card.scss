@@ -48,27 +48,27 @@
     margin: 0;
     margin-top: 15px;
     margin-bottom: 12px;
+  }
 
-    & dd {
-      font-size: 14px;
-      line-height: 20px;
+  &__information-definition {
+    font-size: 14px;
+    line-height: 20px;
 
-      margin: 0;
-      margin-bottom: 9px;
+    margin: 0;
+    margin-bottom: 9px;
 
-      color: #d8d8d9;
-    }
+    color: #d8d8d9;
+  }
 
-    & dt {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 20px;
+  &__information-title {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
 
-      margin: 0;
-      margin-bottom: 2.5px;
+    margin: 0;
+    margin-bottom: 2.5px;
 
-      color: #f9fbfd;
-    }
+    color: #f9fbfd;
   }
 
   &__button {

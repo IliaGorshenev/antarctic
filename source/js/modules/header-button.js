@@ -1,11 +1,11 @@
 
-let navMain = document.querySelector('.header');
-let navToggle = document.querySelector('.header__button');
+const NAV_MAIN = document.querySelector('.header');
+let NAV_TOGGLE = document.querySelector('.header__button');
 
-navMain.classList.remove('header--nojs');
-navMain.classList.add('header--closed');
+NAV_MAIN.classList.remove('header--nojs');
+NAV_MAIN.classList.add('header--closed');
 
-navToggle.addEventListener('click', function () {
-  navMain.classList.toggle('header--opened');
-  navMain.classList.toggle('header--closed');
+NAV_TOGGLE.addEventListener('click', function () {
+  NAV_MAIN.classList.toggle('header--opened');
+  NAV_MAIN.classList.toggle('header--closed');
 });

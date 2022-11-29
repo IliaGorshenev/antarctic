@@ -1,10 +1,8 @@
-import {iosVhFix} from './utils/ios-vh-fix';
-import {initModals} from './modules/modals/init-modals';
 import './modules/header-button';
 
-const buttons = document.querySelectorAll('.navigation__link');
+const BUTTONS = document.querySelectorAll('.navigation__link');
 
-const SCROLL_TO = function (where) {
+const scrollTo = function (where) {
   const scrollTarget = document.querySelector(`[data-scroll-to="${where}"]`);
   const elementPosition = scrollTarget.getBoundingClientRect().top;
 
@@ -14,7 +12,7 @@ const SCROLL_TO = function (where) {
   });
 };
 
-const VALIDATE_PHONE = function () {
+const validatePhone = function () {
   const eventCalllback = function (e) {
     const el = e.target;
     const clearVal = el.dataset.phoneClear;
@@ -45,16 +43,12 @@ const VALIDATE_PHONE = function () {
   }
 };
 
-buttons.forEach((button) => {
+BUTTONS.forEach((button) => {
   button.addEventListener('click', () => {
-    SCROLL_TO(Object.values(button.dataset));
+    scrollTo(Object.values(button.dataset));
   });
 });
 
 window.addEventListener('DOMContentLoaded', ()=> {
-  iosVhFix();
-  VALIDATE_PHONE();
-  window.addEventListener('load', () => {
-    initModals();
-  });
+  validatePhone();
 });
