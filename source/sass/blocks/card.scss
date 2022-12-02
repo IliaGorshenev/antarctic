@@ -3,7 +3,7 @@
 
   display: flex;
   flex-direction: column;
-  min-height: 386px;
+  min-height: 392px;
   padding: 30px 25px;
   padding-left: 32px;
   padding-bottom: 19px;
@@ -31,7 +31,7 @@
 
     margin: 0;
 
-    @include vp-1365 {
+    @include vp-1023 {
       bottom: 31px;
       left: 35px;
     }
@@ -93,7 +93,7 @@
 
     display: block;
 
-    @include vp-1365 {
+    @include vp-1023 {
       object-position: 50%;
     }
   }

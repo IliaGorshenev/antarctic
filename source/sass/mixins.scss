@@ -1,5 +1,17 @@
+@mixin retina-1023 {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx), (max-width: ($vp-1024 - 1px)) {
+    @content;
+  }
+}
+
+@mixin retina-767 {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx), (max-width: ($vp-768 - 1px)) {
+    @content;
+  }
+}
+
 @mixin retina {
-  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx), (max-width: 3000px) {
     @content;
   }
 }

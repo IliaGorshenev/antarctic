@@ -2,9 +2,9 @@
   &__wrapper {
     display: grid;
     grid-template-columns: 47% 1fr;
-    column-gap: 5%;
+    column-gap: 10%;
 
-    @include vp-1365 {
+    @include vp-1023 {
       column-gap: 5%;
     }
 
@@ -26,7 +26,7 @@
   }
 
   &__address {
-    @include vp-1365 {
+    @include vp-1023 {
       max-width: 255px;
     }
   }
@@ -39,7 +39,7 @@
     margin-top: 75px;
     margin-bottom: 30px;
 
-    @include vp-1365 {
+    @include vp-1023 {
       margin-top: 68px;
       margin-bottom: 28px;
     }
@@ -58,7 +58,7 @@
       width: 100%;
       height: 306px;
 
-      @include vp-1365 {
+      @include vp-1023 {
         height: 335px;
       }
     }
