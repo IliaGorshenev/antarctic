@@ -1,7 +1,7 @@
 .feedback {
   min-height: 556px;
 
-  background-color: #ffffff;
+  background-color: #4897ff;
   background-image: url("../img/form-image.jpg");
 
   @media (min-resolution: 2dppx) {
@@ -19,8 +19,9 @@
   &__wrapper {
     display: grid;
     grid-template-columns: minmax(1fr, 496px), minmax(1fr, 400px);
-    column-gap: 13.5%;
-    padding: 50px 60px;
+    justify-content: space-between;
+    column-gap: 3%;
+    padding: 0;
 
     @include vp-1023 {
       display: flex;
@@ -84,6 +85,10 @@
     margin-bottom: 10px;
     max-width: 345px;
 
+    & br {
+      display: none;
+    }
+
     @include vp-1023 {
       text-align: center;
       margin: 0 auto;
@@ -96,6 +101,10 @@
 
       max-width: 276px;
       margin-bottom: 40px;
+
+      & br {
+        display: block;
+      }
     }
   }
 
@@ -103,6 +112,7 @@
     grid-column: 2 / 3;
     grid-row: 1 / 5;
     max-width: 403px;
+    align-self: center;
 
     @include vp-1023 {
       margin: 0 auto;

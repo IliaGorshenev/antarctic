@@ -110,8 +110,11 @@
           padding-top: 75px;
           padding-left: 14px;
           padding-right: 31px;
+          max-height: 100vh;
 
           min-height: 100%;
+          flex-flow: nowrap;
+          overflow: auto;
           flex-direction: column;
           background-color: #ffffff;
           position: absolute;
@@ -242,11 +245,14 @@
     }
 
     &--nojs {
+      margin-top: 300px;
+
       & .header {
         &__logo {
           fill: #000000;
-          position: relative;
-          left: calc(12% + 1px);
+          position: absolute;
+          left: calc(5% + 1px);
+          top: 10px;
           z-index: 5;
 
           @include hover-focus {
@@ -255,12 +261,24 @@
         }
 
         &__navigation {
+          position: absolute;
+          top: 0;
+          left: 0;
           display: block;
         }
 
         &__button {
           display: none;
         }
+      }
+
+      & .navigation__list {
+        padding-top: 0;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        min-height: 235px;
+        max-height: 235px;
+        overflow: auto;
       }
     }
 

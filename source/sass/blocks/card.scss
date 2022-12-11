@@ -3,17 +3,16 @@
 
   display: flex;
   flex-direction: column;
-  min-height: 392px;
+  height: 386px;
   padding: 30px 25px;
-  padding-left: 32px;
-  padding-bottom: 19px;
+  padding-bottom: 14px;
 
   background-color: $dark-blue;
   color: #ffffff;
   justify-content: flex-start;
+  overflow: auto;
 
   @include vp-767 {
-    max-width: 309px;
     width: 100%;
 
     justify-self: stretch;
@@ -37,7 +36,7 @@
     }
 
     @include vp-767 {
-      bottom: 22px;
+      bottom: 18px;
       left: 25px;
     }
   }
@@ -110,4 +109,26 @@
 
 .card:hover {
   padding-left: 25px;
+}
+
+.card:focus .card__title {
+  position: static;
+  order: -1;
+}
+
+.card:focus .card__image {
+  display: none;
+}
+
+.card:focus {
+  padding-left: 25px;
+}
+
+.card__button:focus ~ picture > .card__image {
+  display: none;
+}
+
+.card__button:focus ~ .card__title {
+  position: static;
+  order: -1;
 }

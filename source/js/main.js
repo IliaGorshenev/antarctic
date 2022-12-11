@@ -1,5 +1,8 @@
 import './modules/header-button';
 
+const NAV_MAIN = document.querySelector('.header');
+const NAV_OVERLAY = document.querySelector('.header__navigation');
+
 const BUTTONS = document.querySelectorAll('.navigation__link');
 
 const scrollTo = function (where) {
@@ -17,7 +20,7 @@ const validatePhone = function () {
     const el = e.target;
     const clearVal = el.dataset.phoneClear;
     const pattern = el.dataset.phonePattern;
-    const matrixDef = '+7 (___) ___-__-__';
+    const matrixDef = '+_ (___) ___-__-__';
     let matrix = pattern ? pattern : matrixDef;
     let i = 0;
     const def = matrix.replace(/\D/g, '');
@@ -44,7 +47,14 @@ const validatePhone = function () {
 };
 
 BUTTONS.forEach((button) => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', (evt) => {
+    evt.preventDefault();
+
+    NAV_OVERLAY.classList.remove('overlay');
+    document.body.classList.remove('is-menu-open');
+    NAV_MAIN.classList.remove('header--opened');
+    NAV_MAIN.classList.add('header--closed');
+
     scrollTo(Object.values(button.dataset));
   });
 });
