@@ -303,7 +303,7 @@ button,
   height: 100%;
   padding-top: 60px;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 43, 102, 0.5);
 }
 
 .title {
@@ -1826,6 +1826,8 @@ form .form__button {
 
   .card {
     width: 100%;
+    height: auto;
+    aspect-ratio: 2/2.85;
     -ms-grid-column-align: stretch;
     justify-self: stretch;
   }
